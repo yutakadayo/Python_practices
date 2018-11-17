@@ -1,0 +1,12 @@
+print("気温の変換が出来ます")
+print("入力例：10 F, 25 C")
+temp = input("気温を入力してください：").split()
+
+if temp[1] == "C" or temp[1] == "c":
+    # C to F
+    temp_f = ((9/5)*int(temp[0])+32)
+    print("摂氏"+temp[0]+"度は華氏に直すと"+str(temp_f)+"度です")
+elif temp[1] == "F" or temp[1] == "f":
+    # F to C
+    temp_c = ((5/9)*(int(temp[0])-32))
+    print("華氏"+temp[0]+"度は摂氏に直すと"+str(temp_c)+"度です")
