@@ -1,0 +1,21 @@
+import re
+
+print("気温の変換が出来ます")
+print("入力例：10 F, 25C")
+temp = input("気温を入力してください：")
+
+data = re.search('\D+', temp)
+number = re.search('\d+', temp)
+
+if data == None:
+    print("単位を入力してください")
+elif data.group().strip(" ") == "C" or data.group().strip(" ") == "c":
+    # C to F
+    temp_f = ((9/5)*int(number.group())+32)
+    print("摂氏"+number.group()+"度は華氏に直すと"+str(round(temp_f))+"度です")
+elif data.group().strip(" ") == "F" or data.group().strip(" ") == "f":
+    # F to C
+    temp_c = ((5/9)*(int(number.group())-32))
+    print("華氏"+number.group()+"度は摂氏に直すと"+str(round(temp_c))+"度です")
+else:
+    print("単位を確認してください")
